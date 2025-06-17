@@ -125,11 +125,11 @@ func main() {
 
 
     if alive := stats.applyEffect(e); !alive {
-      fmt.Println("\n💀 Game Over! Final Stats →", stats)
+      fmt.Println("\nGame Over! Final Stats →", stats)
       return
     }
 
   }
 
-  fmt.Println("\n🎉 You survived! Final Stats →", stats)
+  fmt.Println("\n You survived! Final Stats →", stats)
 }

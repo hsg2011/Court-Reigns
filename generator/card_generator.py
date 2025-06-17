@@ -18,7 +18,7 @@ def generate_cards(client, n=20) -> str:
         "  - \"text\": a one-sentence scenario string,\n"
         "  - \"left\": {{\"finances\": int, \"morale\": int, \"fitness\": int, \"fans\": int}},\n"
         "  - \"right\": same shape.\n"
-        "All deltas must be between -50 and +50. Return ONLY the JSON array."
+        "All deltas must be between -30 and +30 and each decision card must only effect 2 deltas. Return ONLY the JSON array."
     ).format(n=n)
 
     response = client.chat.completions.create(
@@ -43,12 +43,12 @@ def main():
         base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
     )
 
-    # 3) Generate cards (change the count if you like)
-    print("Generating cards via Gemini…")
+    # Generate cards (change the count if you like)
+    print("Generating cards via AI…")
     cards_json = generate_cards(client, n=5)
     cleaned = clean_json(cards_json)
 
-    # 4) Validate or pretty-print :
+    # Validate or pretty-print :
     try:
         cards = json.loads(cleaned)
     except json.JSONDecodeError as e:
@@ -57,8 +57,8 @@ def main():
         print(cleaned)
         return
 
-    # 5) Write back into cards.json
-    with open("cards.json", "w") as f:
+    # Write back into cards.json
+    with open("../cards.json", "w") as f:
         json.dump(cards, f, indent=2)
     print(f"Wrote {len(cards)} cards into cards.json")
 
