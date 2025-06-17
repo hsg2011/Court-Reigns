@@ -1,0 +1,77 @@
+[
+  {
+    "text": "Star player demands a new, expensive endorsement deal; refuse and risk losing him, or accept and strain the budget.",
+    "left": {
+      "finances": -40,
+      "morale": 20,
+      "fitness": 0,
+      "fans": 10
+    },
+    "right": {
+      "finances": 40,
+      "morale": -30,
+      "fitness": 0,
+      "fans": -20
+    }
+  },
+  {
+    "text": "A local charity asks for a significant donation; denying them would save money but hurt public image.",
+    "left": {
+      "finances": -30,
+      "morale": 10,
+      "fitness": 0,
+      "fans": 30
+    },
+    "right": {
+      "finances": 30,
+      "morale": -10,
+      "fitness": 0,
+      "fans": -30
+    }
+  },
+  {
+    "text": "The team's physical therapist suggests a new experimental recovery method.",
+    "left": {
+      "finances": 0,
+      "morale": 10,
+      "fitness": 40,
+      "fans": 0
+    },
+    "right": {
+      "finances": 0,
+      "morale": -10,
+      "fitness": -20,
+      "fans": 0
+    }
+  },
+  {
+    "text": "A rival team offers a trade for a promising young player, but you would have to give up a fan favorite.",
+    "left": {
+      "finances": 10,
+      "morale": 0,
+      "fitness": 0,
+      "fans": -40
+    },
+    "right": {
+      "finances": -10,
+      "morale": 0,
+      "fitness": 0,
+      "fans": 40
+    }
+  },
+  {
+    "text": "The team owner suggests cutting back on training facilities to save money.",
+    "left": {
+      "finances": 30,
+      "morale": -20,
+      "fitness": -30,
+      "fans": -10
+    },
+    "right": {
+      "finances": -30,
+      "morale": 20,
+      "fitness": 30,
+      "fans": 10
+    }
+  }
+]

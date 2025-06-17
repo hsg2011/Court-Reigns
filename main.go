@@ -4,13 +4,44 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"encoding/json"
 )
+
+// Effect describes stat changes
+type Effect struct {
+  Finances int `json:"finances"`
+  Morale   int `json:"morale"`
+  Fitness  int `json:"fitness"`
+  Fans     int `json:"fans"`
+}
+
+// Card bundles a prompt + its two outcomes
+type Card struct {
+  Text  string `json:"text"`
+  Left  Effect `json:"left"`
+  Right Effect `json:"right"`
+}
+
 
 type Stats struct {
 	Finances int 
 	Fans     int
 	Morale   int
 	Fitness  int
+}
+
+// LoadCards parses your JSON into Go structs
+func LoadCards(path string) ([]Card, error) {
+  data, err := os.ReadFile(path)
+  if err != nil {
+    return nil, err
+  }
+  var cards []Card
+  if err := json.Unmarshal(data, &cards); err != nil {
+    return nil, err
+  }
+
+  return cards, nil
 }
 
 func (s *Stats) applyEffect(e Effect) bool {
@@ -63,7 +94,7 @@ func (s Stats) print() {
 } 
 
 func main() {
-  cards, err := LoadCards("cards.json")  // assuming cards.json sits next to main.go
+  cards, err := LoadCards("generator/cards.json")  // assuming cards.json sits next to main.go
   if err != nil {
     fmt.Println("Error loading cards:", err)
     os.Exit(1)
